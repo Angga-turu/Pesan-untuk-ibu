@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surat untuk Ibu 🤍</title>
+
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- TypeIt -->
+  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+  <img id="amplop" src="https://rayyscoding.github.io/envelope.png" alt="Surat">
+  <p class="klik">Klik suratnya, Bu 🤍</p>
+
+  <div id="pesan">
+    <!-- FOTO IBU -->
+    <img id="foto-ibu" src="ibu.jpg" alt="Foto Ibu">
+
+    <!-- TEKS -->
+    <p id="teks"></p>
+
+    <!-- TOMBOL WA -->
+    <a id="btn-wa" href="https://wa.me/6287717682382" target="_blank">
+      💬 Balas ke WhatsApp
+    </a>
+
+    <div class="footer">Dengan cinta, anakmu 🤍</div>
+  </div>
+</div>
+
+<script>
+  const audio = new Audio(
+    "https://audio.jukehost.co.uk/5VfcVfr1D3fIU8m27X85m5HVkPyRIhQr"
+  );
+
+  document.getElementById("amplop").onclick = async () => {
+    audio.play();
+
+    await Swal.fire({
+      title: "Untuk Ibu 🤍",
+      text: "Ada pesan kecil dari hatiku",
+      confirmButtonText: "Buka"
+    });
+
+    document.getElementById("amplop").style.display = "none";
+    document.querySelector(".klik").style.display = "none";
+    document.getElementById("pesan").style.display = "block";
+
+    new TypeIt("#teks", {
+      speed: 40,
+      waitUntilVisible: true
+    })
+      .type("Ibu…<br><br>")
+      .type("Terima kasih untuk setiap doa yang tak pernah putus,<br>")
+      .type("untuk sabar yang tak pernah habis,<br>")
+      .type("dan cinta yang selalu utuh meski aku sering salah.<br><br>")
+      .type("Maaf ya Bu, kalau aku belum selalu menjadi anak yang Ibu banggakan.<br><br>")
+      .type("Percayalah Bu,<br>")
+      .type("aku sedang berusaha sebaik mungkin.<br><br>")
+      .type("Semoga Ibu selalu sehat,<br>")
+      .type("selalu bahagia,<br>")
+      .type("dan selalu dilindungi Allha SWT.<br><br>")
+      .type("<b>Aku sayang Ibu 🤍</b>")
+      .go();
+  };
+</script>
+
+</body>
+</html>
